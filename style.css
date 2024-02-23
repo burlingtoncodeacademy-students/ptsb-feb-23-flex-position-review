@@ -1,0 +1,186 @@
+/* 
+    CSS has
+    * rulesets
+    * selectors
+    * declarations
+    * properties
+    * values
+
+    Ruleset
+
+    selector { declaration
+        property: value;
+        property: value;
+    }
+
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #bebebe
+}
+
+nav {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    /* justify-content: flex-end; */
+    /* doesn't work bc main axis on flexdir column is top to bottom */
+    gap: 0.125em
+}
+
+a {
+    color: orangered
+}
+
+#about {
+    color: black;
+    order: 2;
+    align-self: flex-start;
+}
+
+.parent-container {
+    background-color: beige;
+    border: 2px solid black;
+    width: 75vw;
+    height: 175vh;
+    padding: 5px;
+
+    /* position: relative */
+    /* causes absolute container to position inside parent container */
+}
+
+.child {
+    padding: 25px;
+}
+
+/* 
+    ? Static
+    * default
+    * positioned in relation to elements
+    * top, bottom, left, right, z-index have NO effect
+*/
+
+.static {
+    position: static;
+    /* top: 150px; nothing happens */
+    border: 2px solid red;
+    background-color: red;
+    /* top, bottom, left, right, z-index properties have NO EFFECT */
+}
+
+/* 
+    ? Relative
+    * just like static
+    * CAN be changed using top, bottom, left, right, z-index
+    * values are relative to its original static position
+    ! DON'T USE IT. Breaks the flow.
+*/
+
+.relative {
+    border: 2px solid blueviolet;
+    background-color: blueviolet;
+
+    position: relative;
+    /* top: 25px; */
+    /* left: 250px; */
+
+    /* by default acts like static */
+    /* can use t, b, l, r to take the element out of document flow */
+    /* ! DO NOT USE IT! It's too manual */
+}
+
+/* 
+    ? Absolute
+    * removes the element from the flow
+    * positions it relative to parent container
+    * if parent is static, it will move outside of parent container to the next parent container
+    * if parent is relative, it will move within its relative parent container
+    * positioning defined by top, bottom, left, right, z-index
+*/
+
+.absolute {
+    border: 2px solid green;
+    background-color: green;
+
+    /* position: absolute; */
+    /* takes element out of flow */
+    top: 0;
+    /* relative to root that's NOT static */
+    /* used for absolutely positioning children */
+}
+
+/* 
+    ? Fixed
+    * like absolute
+    * positioned to viewport
+    * doesn't move when scrolling
+    * positioning defined by top, bottom, left, right, z-index
+*/
+
+.fixed {
+    border: 2px solid teal;
+    background-color: teal;
+
+    /* position: fixed; */
+    top: 0;
+    /* ignores parent */
+    /* based on ENTIRE viewport */
+    /* absolute on parent relative will scroll */
+    /* Fixed WILL NOT scroll away */
+}
+
+/* 
+    ? Sticky
+    * mix of relative and fixed
+    * relative to the flow
+    * position definition used for when you start scrolling
+    * statys fixed when scrolling; relative when stationary
+*/
+
+.sticky {
+    border: 2px solid gray;
+    background-color: gray;
+
+    position: sticky;
+    top: 125px;
+
+    /* Acts like a combination of fixed and absolute */
+    /* Stays fixed once scroll occurs */
+    /* It's relative by default (doesn't move out of normal flow) */
+
+}
+
+.display-container {
+    margin-top: 2em;
+}
+
+.block-container {
+    border: 2px solid black;
+    margin-top: 2px;
+    /* display: inline; */
+}
+
+.inline-element {
+    /* display: block; */
+}
+
+.inline-block {
+    border: 2px solid black;
+    margin-top: 2px;
+
+    display: inline-block;
+    width: 250px;
+}
+
+.float {
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+    
+    float: right;
+}
